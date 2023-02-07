@@ -25,4 +25,4 @@ const toggleLike = async (req, res) => {
   }
 };
 
-export { toggleLike };
+export default toggleLike;
