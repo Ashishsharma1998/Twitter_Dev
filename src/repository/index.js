@@ -3,6 +3,7 @@ import tweetRepository from "./tweet-repository.js";
 import CrudRepository from "./crud-repository.js";
 import likeRepository from "./like-repository.js";
 import commentRepository from "./comment-repository.js";
+import userRepository from "./user-repository.js";
 
 export {
   hashtagRepository,
@@ -10,4 +11,5 @@ export {
   CrudRepository,
   likeRepository,
   commentRepository,
+  userRepository,
 };
