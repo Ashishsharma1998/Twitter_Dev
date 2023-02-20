@@ -25,4 +25,24 @@ const signUp = async (req, res) => {
   }
 };
 
-export { signUp };
+const logIn = async (req, res) => {
+  try {
+    const response = await UserService.signIn(req.body);
+
+    return res.status(200).json({
+      data: response,
+      success: true,
+      message: "user is successfully logged in",
+      error: {},
+    });
+  } catch (error) {
+    return res.status(401).json({
+      data: {},
+      success: false,
+      message: "unauthorised user",
+      error: error,
+    });
+  }
+};
+
+export { signUp, logIn };

@@ -13,6 +13,36 @@ class userService {
       throw error;
     }
   }
+
+  async findUserByEmail(email) {
+    try {
+      const user = await this.userRepository.findBy({ email });
+      return user;
+    } catch (error) {
+      console.log("something went wrong!");
+      throw error;
+    }
+  }
+
+  async signIn({ email, password }) {
+    try {
+      const user = await this.findUserByEmail(email);
+
+      if (!user) {
+        throw { message: "no found user!" };
+      }
+
+      if (!user.comparePassword(password)) {
+        throw { message: "incorrect password!" };
+      }
+
+      const data = user.genJWT();
+      return data;
+    } catch (error) {
+      console.log("something went wrong in the service layer here!");
+      throw error;
+    }
+  }
 }
 
 export default userService;
