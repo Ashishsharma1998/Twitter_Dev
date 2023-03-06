@@ -1,10 +1,7 @@
-export const helper = () => {
-  const num = Math.floor(Math.random() * 10);
-  return num % 2 == 0;
-};
+import { helper } from "./helper-service.js";
 
 export const execute = () => {
-  const result = false;
+  const result = helper();
   if (result) {
     return "Learning Js";
   } else {
