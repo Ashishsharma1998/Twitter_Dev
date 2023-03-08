@@ -6,6 +6,16 @@ class tweetRepository extends CrudRepository {
     super(Tweet);
   }
 
+  async create(data) {
+    try {
+      const tweet = await Tweet.create(data);
+      return tweet;
+    } catch (error) {
+      console.log("from repository", error);
+      throw error;
+    }
+  }
+
   async getWithComment(id) {
     try {
       const tweet = await Tweet.findById(id)
@@ -14,6 +24,7 @@ class tweetRepository extends CrudRepository {
       return tweet;
     } catch (error) {
       console.log(error);
+      throw error;
     }
   }
 
@@ -23,6 +34,7 @@ class tweetRepository extends CrudRepository {
       return response;
     } catch (error) {
       console.log(error);
+      throw error;
     }
   }
 
