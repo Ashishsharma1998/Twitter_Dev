@@ -4,7 +4,7 @@ const UserService = new userService();
 
 const signUp = async (req, res) => {
   try {
-    const response = await UserService.create({
+    const response = await UserService.signUp({
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,

@@ -5,7 +5,7 @@ class userService {
     this.userRepository = new userRepository();
   }
 
-  async create(data) {
+  async signUp(data) {
     try {
       const response = await this.userRepository.create(data);
       return response;
